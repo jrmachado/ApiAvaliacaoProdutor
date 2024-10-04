@@ -1,7 +1,5 @@
 package br.com.jrm.test.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,23 +19,11 @@ public class FilmController {
 	@Autowired
 	private FilmService filmService;
 
-	@GetMapping("/maior-periodo")
-	public ResponseEntity<?> getObterProdutorMaiorPeriodo() {
+	@GetMapping("/maior-menor-periodo")
+	public ResponseEntity<?> getObterProdutorMaiorMenorPeriodoEntrePremiacao() {
 
-		List<ResponseVO> response = filmService.getObterProdutorMaiorPeriodo();
-		if (!response.isEmpty()) {
-			return ResponseEntity.ok(response);
-		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(AVALICAO_NAO_ENCONTRADA);
-		}
-
-	}
-
-	@GetMapping("/premio-mais-rapido")
-	public ResponseEntity<?> getObterProdutorPremiosRapidos() {
-		List<ResponseVO> response = filmService.getObterProdutorPremiosRapidos();
-
-		if (!response.isEmpty()) {
+		ResponseVO response = filmService.getObeterProdutorMaiorMenorPeriodoPremiacao();
+		if (response != null) {
 			return ResponseEntity.ok(response);
 		} else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(AVALICAO_NAO_ENCONTRADA);

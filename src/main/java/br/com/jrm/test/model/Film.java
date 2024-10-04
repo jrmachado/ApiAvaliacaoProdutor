@@ -1,5 +1,7 @@
 package br.com.jrm.test.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ public class Film {
 
 	private String title;
 	private String studios;
-	private String producer;
+	List<String> producers;
 	private boolean winner;
 
 	public Long getId() {
@@ -52,20 +54,20 @@ public class Film {
 		this.studios = studios;
 	}
 
-	public String getProducer() {
-		return producer;
-	}
-
-	public void setProducer(String producer) {
-		this.producer = producer;
-	}
-
 	public boolean isWinner() {
 		return winner;
 	}
 
 	public void setWinner(boolean winner) {
 		this.winner = winner;
+	}
+
+	public List<String> getProducers() {
+		return producers;
+	}
+
+	public void setProducers(List<String> producers) {
+		this.producers = producers;
 	}
 
 }
